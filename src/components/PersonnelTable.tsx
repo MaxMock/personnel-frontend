@@ -71,17 +71,19 @@ const PersonnelTable: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 8 }}>
+    <Container maxWidth="md" sx={{ mt: 8 ,mb:8 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <TextField
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="ค้นหา"
+            size="small"
+            sx={{ width: '200px' }}
           />
-          <Button onClick={() => fetchPersonnel(null, searchTerm)} color="primary" variant="contained" sx={{ ml: 2 }}>ค้นหา</Button>
+          <Button onClick={() => fetchPersonnel(null, searchTerm)} sx={{ ml: 2, backgroundColor: '#001e4e', color: 'white', height: '40px' }} variant="contained">ค้นหา</Button>
         </Box>
-        <Button onClick={() => setAddDialogOpen(true)} color="primary" variant="contained">เพิ่มข้อมูล</Button>
+        <Button onClick={() => setAddDialogOpen(true)} sx={{ backgroundColor: '#001e4e', color: 'white' }} variant="contained">เพิ่มข้อมูล</Button>
       </Box>
       <TableContainer component={Paper}>
         <Table>
@@ -104,7 +106,7 @@ const PersonnelTable: React.FC = () => {
                 <TableCell>{person.personnelNameEN}</TableCell>
                 <TableCell>{person.personnelLastEN}</TableCell>
                 <TableCell>
-                  <Button onClick={() => { setSelectedPersonnelId(person.personnelId); setEditDialogOpen(true); }} color="primary">แก้ไข</Button>
+                  <Button onClick={() => { setSelectedPersonnelId(person.personnelId); setEditDialogOpen(true); }} sx={{ backgroundColor: '#001e4e', color: 'white' }}>แก้ไข</Button>
                   <Button color="secondary" onClick={() => { setSelectedPersonnelId(person.personnelId); setDeleteDialogOpen(true); }}>ลบ</Button>
                 </TableCell>
               </TableRow>
@@ -119,7 +121,8 @@ const PersonnelTable: React.FC = () => {
           label="จำนวนข้อมูลต่อหน้า"
           value={limit}
           onChange={(e) => setLimit(Number(e.target.value))}
-          sx={{ width: '150px', ml: 2 }}
+          size="small"
+          sx={{ width: '100px', ml: 2 }}
           SelectProps={{
             native: true,
           }}
@@ -156,7 +159,7 @@ const PersonnelTable: React.FC = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setDeleteDialogOpen(false)} color="secondary">Cancel</Button>
-          <Button onClick={() => handleDelete(selectedPersonnelId!)} color="primary">Delete</Button>
+          <Button onClick={() => handleDelete(selectedPersonnelId!)} sx={{ backgroundColor: '#001e4e', color: 'white' }}>Delete</Button>
         </DialogActions>
       </Dialog>
     </Container>

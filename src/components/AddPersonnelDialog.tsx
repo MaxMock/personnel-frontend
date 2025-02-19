@@ -177,8 +177,8 @@ const AddPersonnelDialog: React.FC<AddPersonnelDialogProps> = ({ open, onClose, 
             />
           </Box>
           <DialogActions>
-            <Button onClick={onClose} color="secondary">กลับ</Button>
-            <Button type="submit" color="primary" variant="contained">บันทึก</Button>
+            <Button variant="contained" onClick={onClose} sx={{ backgroundColor: '#ff7700', color: 'white' }}>กลับ</Button>
+            <Button type="submit" variant="contained" sx={{ backgroundColor: '#003c99', color: 'white' }}>บันทึก</Button>
           </DialogActions>
         </Box>
       </DialogContent>
